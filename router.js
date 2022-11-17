@@ -15,25 +15,37 @@ router.get('/top', async (req, res) => {
 			body: post.body,
 			comments: comments.length,
 		});
-		if (post.userId == 1) {
+		if (post.userId === 2) {
 			break;
 		}
 	}
-	res.render('posts', { finalResult });
+	if (finalResult.length !== 0) {
+		res.render('posts', { finalResult });
+	} else {
+		res.send(404).send('Not found');
+	}
 });
 
 router.post('/:id', async (req, res) => {
 	let id = req.params.id;
 	let result = await api.getSinglePost(id);
-	res.status(200).send(result);
+	if (result.length !== 0) {
+		res.status(200).send(result);
+	} else {
+		res.send(404).send('Not found');
+	}
 });
 
 router.get('/comments/:postId', async (req, res) => {
 	let postId = req.params.postId;
 	let result = await api.getComments(postId);
-	res.render('comments', {
-		comments: result,
-	});
+	if (result.length !== 0) {
+		res.status(200).render('comments', {
+			comments: result,
+		});
+	} else {
+		res.send(404).send('Not found');
+	}
 });
 
 router.get('/users/:userId', async (req, res) => {
