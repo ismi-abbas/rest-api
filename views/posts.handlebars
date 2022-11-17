@@ -1,0 +1,24 @@
+<div class='w-auto p-4'>
+	<div class='list-group w-auto m-2 p-2'>
+		<ul class='m-2 p-2'>
+			{{#each finalResult}}
+				<div class='list-group-item'>
+					<h3>
+						Title:
+						{{this.postTitle}}
+					</h3>
+					<div class='mb-1'>
+						<h6>Id: {{this.postId}}</h6>
+						<p>Body: {{this.body}}</p>
+						<h6>Comments: {{comments}}</h6>
+						<a
+							href='/post/comments/{{postId}}'
+							type='button'
+							class='btn btn-primary text-light'
+						>See comments</a>
+					</div>
+				</div>
+			{{/each}}
+		</ul>
+	</div>
+</div>

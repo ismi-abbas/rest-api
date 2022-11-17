@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class='w-auto p-4'>
+	<h1>{{appTitle}}</h1>
+	{{!-- <ul class='list-group'>
+		{{#each post}}
+			<li class='list-group-item'>Title: {{this.postTitle}}</li>
+			<li>Body: {{this.body}}</li>
+			<li>Comments: {{comments}}</li>
+		{{/each}} --}}
+	</ul>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>POST</h1>
-  <ul class="list-group">
-    {{#each finalResult}}
-    <li class="list-group-item">Title: {{this.postTitle}}</li>
-    <li>Body: {{this.body}}</li>
-    <li>Comments: {{comments}}</li>
-    {{/finalResult}}
-  </ul>
-</body>
-
-</html>
+	<a href='/post/top' type='button' class='btn btn-primary text-light'>See all post</a>
+</div>
